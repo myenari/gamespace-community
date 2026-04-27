@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    h1 Game Tips List
+
+    each tip in tips
+        div
+            
+          p 
+            b Game: #{tip.game}
+
+          p Title: #{tip.title}     
+
+          p Posted by: #{tip.username}
+          p Short description: #{tip.short_description}
+          p Full description: #{tip.full_description}
+          p Likes: #{tip.likes}
+         
+          hr

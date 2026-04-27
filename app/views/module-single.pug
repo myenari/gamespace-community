@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    h1 #{module.name}
+
+    h2 Code:
+    p #{module.code}
+
+    h2 Programmes:
+    ul
+        each p in programmes
+            li #{p.name}
+
+    h2 Students:
+    ul
+        each s in students
+            li #{s.name}

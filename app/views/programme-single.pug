@@ -1,0 +1,10 @@
+extends layout
+
+block content
+    h1 #{programme.name}
+
+    h2 Modules:
+    ul
+        each m in modules
+           li
+              a(href="/module/" + m.code) #{m.name}

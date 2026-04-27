@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    h1 #{student.name}
+
+    h2 Programme:
+    if programme.length > 0
+        p #{programme[0].name}
+    else
+        p None
+
+    h3 Modules:
+    ul
+        each m in modules
+            li #{m.name}

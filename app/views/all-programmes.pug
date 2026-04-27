@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    h1 All Programmes
+
+    table(border=1)
+        tr
+            th ID
+            th Name
+
+        each item in data
+            tr
+                td #{item.id}
+                td
+                    a(href="/programme/" + item.id) #{item.name}
