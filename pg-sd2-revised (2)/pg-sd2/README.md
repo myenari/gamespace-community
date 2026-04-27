@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # MySQL, PHPMyAdmin and Node.js (ready for Express development)
 
 This will install Mysql and phpmyadmin (including all dependencies to run Phpmyadmin) AND node.js
@@ -57,7 +56,3 @@ Once in the database container, you can get a MySQL CLI in the usual way
 ```bash
 mysql -uroot -p<password> 
 ```
-=======
-# gametips-community
-A community-driven platform where gamers can discover, share, and discuss tips across different games. Gamespace Community helps players improve their skills, explore new strategies, and connect with others who share the same passion.
-
