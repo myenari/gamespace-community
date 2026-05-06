@@ -265,6 +265,14 @@ app.get("/tips", async function(req, res) {
     });
 });
 
+app.get("/users", async function(req, res) {
+    let users = await db.query("SELECT * FROM users");
+
+    res.render("users", {
+        users: users
+    });
+});
+
 // Start server on port 3000
 app.listen(3000,function(){
     console.log(`Server running at http://127.0.0.1:3000/`);
