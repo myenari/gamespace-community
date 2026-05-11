@@ -1,0 +1,57 @@
+extends layout
+
+block content
+    h1 User Profile
+
+    h2 User Information
+
+    table(border="1")
+        tr
+            th User ID
+            td #{user.user_id}
+        tr
+            th Name
+            td #{user.name}
+        tr
+            th Username
+            td #{user.username}
+        tr
+            th Email
+            td #{user.email}
+        tr
+            th Date Joined
+            td #{user.date_joined}   
+        tr
+            th Tips Posted
+            td #{tips.length} 
+
+    h2 Tips posted by this user
+
+    hr
+
+    if tips.length > 0
+        each tip in tips
+            div
+                p 
+                    b Game:
+                    |  #{tip.game}
+   
+                p    
+                    b Title:
+                    |  #{tip.title}
+
+                p
+                    b Short description:
+                    |  #{tip.short_description}
+
+                p
+                    b Full description:
+                    |  #{tip.full_description}
+
+                p
+                    b Likes:
+                    |  #{tip.likes}
+
+                hr
+    else
+        p This user has not posted any tips.

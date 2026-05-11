@@ -3,8 +3,7 @@ extends layout
 block content
     h1 Users
 
-    each user in users
-        div
-            p
-                a(href="/user/" + user.user_id) #{user.username}
-            hr
+    ul
+        each user in users
+            li
+                a(href="/user/" + user.user_id)= user.username

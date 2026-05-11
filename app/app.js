@@ -30,10 +30,6 @@ app.get("/roehampton", function(req, res) {
     res.send(reversed);
 });
 
-app.get("/user/:id", function(req, res) {
-    res.send("User ID is " + req.params.id);
-});
-
 // Create a route for testing the db
 app.get("/db_test", function(req, res) {
     // Assumes a table called test_table exists in your database
@@ -266,11 +262,38 @@ app.get("/tips", async function(req, res) {
 });
 
 app.get("/users", async function(req, res) {
-    let users = await db.query("SELECT * FROM users");
+
+    let users = await db.query(
+        "SELECT * FROM users"
+    );
 
     res.render("users", {
         users: users
     });
+
+});
+
+app.get("/user/:id", async function(req, res) {
+    let id = req.params.id;
+
+    let user = await db.query(
+        `SELECT user_id, name, username, email, DATE_FORMAT(date_joined, '%d/%m/%Y') AS date_joined FROM users WHERE user_id = ?`,
+        [id]
+    );
+
+    let tips = await db.query(
+        "SELECT * FROM tips WHERE user_id = ?",
+        [id]
+    );
+
+    if (user.length > 0) {
+        res.render("user-single", {
+            user: user[0],
+            tips: tips
+        });
+    } else {
+        res.send("User not found");
+    }
 });
 
 // Start server on port 3000
