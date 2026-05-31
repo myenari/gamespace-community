@@ -296,6 +296,10 @@ app.get("/user/:id", async function(req, res) {
     }
 });
 
+app.get("/about", function(req, res) {
+    res.render("about");
+});
+
 // Start server on port 3000
 app.listen(3000,function(){
     console.log(`Server running at http://127.0.0.1:3000/`);
